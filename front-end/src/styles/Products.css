@@ -1,0 +1,12 @@
+.product {
+    border: 1px solid lightgrey;
+}
+button{
+    border: none;
+}
+
+.productimg {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+}
