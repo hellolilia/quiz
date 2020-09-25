@@ -32,5 +32,12 @@ li {
   color: white;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width:600px;
+  height:100px;
+}
+
 
 

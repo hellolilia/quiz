@@ -33,6 +33,9 @@ function App() {
           <Route path='/order' component={Order} />
           <Route path='/add' component={AddProduct} />
         </switch>
+        <footer>
+          <p>TW Mall ©2018 Created by ForCheng</p>
+        </footer>
       </Router>
     </div>
   );
