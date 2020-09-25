@@ -7,7 +7,7 @@ const Products = ({name,price,unit,image}) => {
 
     return (
         <div className="product">
-            <img className='productimg' src={productImagePlaceholder || {image}} alt='product'/>
+            <img className='productImg' src={productImagePlaceholder || {image}} alt='product'/>
             <p className="productName">{name}</p>
             <p className='productPrice'>单价：{price}元/{unit}</p>
             <button> <img src={addProductImage} alt='add'/></button>

@@ -1,12 +1,13 @@
 .product {
     border: 1px solid lightgrey;
+    color: black;
 }
 button{
     border: none;
 }
 
-.productimg {
-    width: 150px;
-    height: 150px;
+.productImg {
+    width: 60px;
+    height: 60px;
     margin-top: 10px;
 }
