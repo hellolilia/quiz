@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, NavLink, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom';
 import './App.css';
 import Mall from "./components/Mall";
 import Order from "./components/Order";
@@ -15,24 +15,24 @@ function App() {
         <header className="App-header">
           <ul>
             <li>
-              <img src={imgMallURL} />
+              <img src={imgMallURL} alt={'mall'}/>
               <Link to='/'>商城</Link>
             </li>
             <li>
-              <img src={imgOrderURL} />
+              <img src={imgOrderURL} alt={'order'}/>
               <Link to='/order'>订单</Link>
             </li>
             <li>
-              <img src={imgAddProductURL} />
+              <img src={imgAddProductURL} alt={'add product'}/>
               <Link to='/add'>添加商品</Link>
             </li>
           </ul>
         </header>
-        <switch>
+        <Switch>
           <Route exact path='/' component={Mall} />
           <Route path='/order' component={Order} />
           <Route path='/add' component={AddProduct} />
-        </switch>
+        </Switch>
         <footer>
           <p>TW Mall ©2018 Created by ForCheng</p>
         </footer>
