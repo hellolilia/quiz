@@ -9,8 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.*;
-import static org.hamcrest.Matchers.hasKey;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -18,18 +16,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 class ProductControllerTest {
-    @Autowired
+    @Autowired(required=false)
     ProductDto productDto;
     @Autowired
     MockMvc mockMvc;
+    @Autowired
+    ProductRepository productRepository;
 
     @Test
     public void shouldGetProductList() throws Exception {
 
         ProductDto productDto = ProductDto.builder()
-                .name("可乐2").price("2.50").unit('瓶').build();
+                .name("可乐2").price("2.50").unit("瓶").build();
 
-        ProductRepository.save(productDto);
+        productRepository.save(productDto);
 
         mockMvc
                 .perform(get("/pro/list"))
