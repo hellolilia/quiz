@@ -34,6 +34,12 @@ class AddProduct extends Component {
             },
             body:JSON.stringify(this.state)
         })
+        this.setState({
+            name: '',
+            price: '',
+            unit: '',
+            image: ''
+        });
     }
 
 
