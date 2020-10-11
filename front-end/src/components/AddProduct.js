@@ -8,7 +8,7 @@ class AddProduct extends Component {
         name: '',
         price: '',
         unit: '',
-        picture: ''
+        image: ''
     }
 
     handleChange = (event) => {
@@ -24,6 +24,16 @@ class AddProduct extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(JSON.stringify(this.state))
+        fetch('http://localhost:8080/product',{
+            method:'POST',
+            mode: 'cors',
+            headers:{
+                'Content-Type': 'application/json ',
+                'Accept': 'application/json',
+                "Access-Control-Origin": "*"
+            },
+            body:JSON.stringify(this.state)
+        })
     }
 
 
@@ -58,17 +68,18 @@ class AddProduct extends Component {
             <label className='picture'>
                 图片：
                 <input type='text'
-                       name='picture'
+                       name='image'
                        placeholder='URL'
                        pattern="https?://.+"
                        onChange={this.handleChange}
-                       value={this.state.picture}/>
+                       value={this.state.image}/>
             </label>
             <input className='submit'
                    type='submit'
                    name='submit'
                    value='提交'
-                   disabled={!this.state.name || !this.state.price || !this.state.unit || !this.state.picture}/>
+                   disabled={!this.state.name || !this.state.price || !this.state.unit || !this.state.image}
+            />
         </form>
 
     }
