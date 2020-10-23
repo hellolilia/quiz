@@ -25,7 +25,6 @@ class AddProduct extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(JSON.stringify(this.state))
         fetch('http://localhost:8080/product', {
             method: 'POST',
             mode: 'cors',
@@ -44,7 +43,6 @@ class AddProduct extends Component {
                     image: ''
                 })
             } else {
-                console.log('error')
                 this.showModal()
             }
         })
