@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './AddProduct.css'
+import { Modal } from 'antd';
 
 class AddProduct extends Component {
 
@@ -9,6 +10,7 @@ class AddProduct extends Component {
         price: '',
         unit: '',
         image: ''
+
     }
 
     handleChange = (event) => {
@@ -43,54 +45,65 @@ class AddProduct extends Component {
                 })
             } else {
                 console.log('error')
+                this.showModal()
             }
         })
     }
 
+    showModal = () => {
+        Modal.error({
+            title: 'This is an error message',
+            content: 'some messages...some messages...',
+        });
+    };
+
     render() {
-        return <form onSubmit={this.handleSubmit}>
-            <h2>添加商品</h2>
-            <label className='name'>
-                名称：
-                <input type='text'
-                       name='name'
-                       placeholder='  名称'
-                       onChange={this.handleChange}
-                       value={this.state.name}/>
-            </label>
-            <label className='price'>
-                价格：
-                <input type='text'
-                       name='price'
-                       placeholder='  价格'
-                       pattern="(?!^0*(\.0{1,2})?$)^\d{1,13}(\.\d{1,2})?$"
-                       onChange={this.handleChange}
-                       value={this.state.price}/>
-            </label>
-            <label className='unit'>
-                单位：
-                <input type='text'
-                       name='unit'
-                       placeholder='  单位'
-                       onChange={this.handleChange}
-                       value={this.state.unit}/>
-            </label>
-            <label className='picture'>
-                图片：
-                <input type='text'
-                       name='image'
-                       placeholder=' URL'
-                       pattern="https?://.+"
-                       onChange={this.handleChange}
-                       value={this.state.image}/>
-            </label>
-            <input className='submit'
-                   type='submit'
-                   name='submit'
-                   value='提交'
-                   disabled={!this.state.name || !this.state.price || !this.state.unit || !this.state.image}
-            />
-        </form>
+        return (
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <h2>添加商品</h2>
+                    <label className='name'>
+                        名称：
+                        <input type='text'
+                               name='name'
+                               placeholder='  名称'
+                               onChange={this.handleChange}
+                               value={this.state.name}/>
+                    </label>
+                    <label className='price'>
+                        价格：
+                        <input type='text'
+                               name='price'
+                               placeholder='  价格'
+                               pattern="(?!^0*(\.0{1,2})?$)^\d{1,13}(\.\d{1,2})?$"
+                               onChange={this.handleChange}
+                               value={this.state.price}/>
+                    </label>
+                    <label className='unit'>
+                        单位：
+                        <input type='text'
+                               name='unit'
+                               placeholder='  单位'
+                               onChange={this.handleChange}
+                               value={this.state.unit}/>
+                    </label>
+                    <label className='picture'>
+                        图片：
+                        <input type='text'
+                               name='image'
+                               placeholder=' URL'
+                               pattern="https?://.+"
+                               onChange={this.handleChange}
+                               value={this.state.image}/>
+                    </label>
+                    <input className='submit'
+                           type='submit'
+                           name='submit'
+                           value='提交'
+                           disabled={!this.state.name || !this.state.price || !this.state.unit || !this.state.image}
+                    />
+                </form>
+            </div>)
 
     }
 }
