@@ -24,24 +24,28 @@ class AddProduct extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         console.log(JSON.stringify(this.state))
-        fetch('http://localhost:8080/product',{
-            method:'POST',
+        fetch('http://localhost:8080/product', {
+            method: 'POST',
             mode: 'cors',
-            headers:{
+            headers: {
                 'Content-Type': 'application/json ',
                 'Accept': 'application/json',
                 "Access-Control-Origin": "*"
             },
-            body:JSON.stringify(this.state)
+            body: JSON.stringify(this.state)
+        }).then(response => {
+            if (response.status === 201) {
+                this.setState({
+                    name: '',
+                    price: '',
+                    unit: '',
+                    image: ''
+                })
+            } else {
+                console.log('error')
+            }
         })
-        this.setState({
-            name: '',
-            price: '',
-            unit: '',
-            image: ''
-        });
     }
-
 
     render() {
         return <form onSubmit={this.handleSubmit}>
