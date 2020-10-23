@@ -52,8 +52,8 @@ class AddProduct extends Component {
 
     showModal = () => {
         Modal.error({
-            title: 'This is an error message',
-            content: 'some messages...some messages...',
+            title: '添加失败',
+            content: '商品名称已存在，请输入新的商品名称',
         });
     };
 
