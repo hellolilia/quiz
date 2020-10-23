@@ -66,3 +66,28 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Tasking
+
+Task1: 添加商品页
+Sub-Task1：发送请求成功添加数据
+Sub-Task2：添加弹框
+Sub-Task3：实现样式CSS
+
+Task2: 商城页面
+Sub-Task1：发送请求获取数据
+Sub-Task2：页面渲染数据
+Sub-Task3：实现样式CSS
+
+Task3: 订单页面
+Sub-Task1：发送请求获取数据
+Sub-Task2：页面渲染数据
+Sub-Task3：实现样式CSS
+
+Task4: 购物车功能
+Sub-Task1：发送请求成功添加数据（商城页面）
+Sub-Task2：发送请求获取数据（订单页面)
+Sub-Task3：发送请求删除数据（订单页面)
+Sub-Task4：添加弹框
+Sub-Task5：实现样式CSS
+
