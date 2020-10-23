@@ -76,6 +76,22 @@ class ProductControllerTest {
     }
 
 
+    @Test
+    public void shouldReturnTrueWhenHasProductName() throws Exception {
+        String img = "https://img.zcool.cn/community/017483591da785b5b3086ed4904903.jpg@1280w_1l_2o_100sh.jpg";
+
+        String jsonString = "{\"name\":\"可乐6\",\"price\":\"6.50\",\"unit\":\"6瓶\",\"image\":\"https://img.zcool.cn/community/017483591da785b5b3086ed4904903.jpg@1280w_1l_2o_100sh.jpg\"}";
+        mockMvc.perform(post("/product").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated());
+        List<ProductDto> all = productRepository.findAll();
+        assertNotNull( all );
+        assertEquals(6,all.size());
+        assertEquals("可乐6",all.get(5).getName());
+        assertEquals("6.50",all.get(5).getPrice());
+        assertEquals("6瓶",all.get(5).getUnit());
+        assertEquals(img,all.get(5).getImage());
+
+    }
 
 
 }
