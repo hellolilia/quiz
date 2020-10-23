@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Link, Switch, Route} from 'react-router-dom';
 import './App.css';
-import Mall from "./components/Mall";
-import Order from "./components/Order";
-import AddProduct from "./components/AddProduct";
+import Mall from "./components/Mall/Mall";
+import Order from "./components/Order/Order";
+import AddProduct from "./components/AddProduct/AddProduct";
 import imgMallURL from './assets/Mall.png';
 import imgAddProductURL from './assets/AddProduct.png';
 import imgOrderURL from './assets/Order.png';

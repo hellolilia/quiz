@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/Products.css'
-import addProductImage from '../assets/AddProduct.png'
+import './Products.css'
+import addProductImage from '../../assets/AddProduct.png'
 
 const Products = ({name,price,unit,image}) => {
 
