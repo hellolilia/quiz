@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +28,7 @@ public class ProductController {
     }
 
     @PostMapping("/product")
-    public ResponseEntity addProductList(@RequestBody Product product){
+    public ResponseEntity addProductList(@RequestBody @Valid Product product){
         return productService.addProduct(product);
     }
 

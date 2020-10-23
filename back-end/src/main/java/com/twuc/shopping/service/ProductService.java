@@ -19,11 +19,15 @@ public class ProductService {
     }
 
     public ResponseEntity addProduct(Product product) {
-        ProductDto productDto = ProductDto.builder().name(product.getName())
-                .price(product.getPrice()).unit(product.getUnit())
-                .image(product.getImage()).build();
-        productRepository.save(productDto);
-        return ResponseEntity.created(null).build();
+        if (productRepository.countByName(product.getName()) == 0) {
+            ProductDto productDto = ProductDto.builder().name(product.getName())
+                    .price(product.getPrice()).unit(product.getUnit())
+                    .image(product.getImage()).build();
+            productRepository.save(productDto);
+            return ResponseEntity.created(null).build();
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     public ResponseEntity getProducts() {
@@ -34,6 +38,5 @@ public class ProductService {
                 .collect(Collectors.toList());
         return ResponseEntity.ok(products);
     }
-
 
 }

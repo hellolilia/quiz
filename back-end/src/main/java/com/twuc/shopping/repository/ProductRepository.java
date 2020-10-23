@@ -9,4 +9,6 @@ public interface ProductRepository extends CrudRepository<ProductDto, Integer> {
 
     @Override
     List<ProductDto> findAll();
+
+    long countByName(String name);
 }
